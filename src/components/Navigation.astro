@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import logo from "@/images/scout_color.png";
+
+interface NavigationInterface {
+  text: string;
+  href: string;
+}
+
+const navigationItems: NavigationInterface[] = [
+  {
+    text: "Home",
+    href: "/",
+  },
+  {
+    text: "Our Troop",
+    href: "/",
+  },
+];
+---
+
+<div>
+  <nav class="flex items-center px-6 pt-2">
+    <div class="flex items-center gap-1.5">
+      <Image src={logo} alt="logo" class="w-9 h-9" />
+      <p class="font-heading font-medium text-lg">Appleton Troop 67</p>
+    </div>
+    <div class="flex-1"></div>
+    <ul class="flex gap-4">
+      {
+        navigationItems.map((item) => (
+          <li>
+            <a href={item.href}>{item.text}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</div>

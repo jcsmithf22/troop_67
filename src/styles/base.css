@@ -1,0 +1,15 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --tan: 41 23% 79%;
+    --red: 353 85% 44%;
+    --olive: 138 27% 19%;
+    --blue: 212 100% 26%;
+    --warm-gray: 200 2% 32%;
+    --white: 0 0% 100%;
+  }
+}
