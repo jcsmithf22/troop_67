@@ -4,6 +4,7 @@ import Layout from "@/layouts/Layout.astro";
 import backgroundImage from "@/images/temporary_background.jpg";
 import GoogleCalendar from "@/components/GoogleCalendar.astro";
 import Features from "@/components/Features.astro";
+import Testimonial from "@/components/Testimonial.astro";
 ---
 
 <style>
@@ -19,6 +20,7 @@ import Features from "@/components/Features.astro";
             src={backgroundImage}
             alt="background image"
             class="w-full h-full object-cover rounded-2xl color-filter"
+            loading="eager"
         />
         <div
             class="absolute inset-2 rounded-l-2xl flex justify-center px-4 sm:px-16 font-heading flex-col"
@@ -70,6 +72,7 @@ import Features from "@/components/Features.astro";
     </div>
     <main class="">
         <Features />
+        <Testimonial />
         <GoogleCalendar />
     </main>
 </Layout>
