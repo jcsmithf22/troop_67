@@ -1,162 +1,75 @@
 ---
 import { Image } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
-import Calendar from "@/components/Calendar.astro";
-import backgroundImage from "../images/temporary_background.jpg";
+import Layout from "@/layouts/Layout.astro";
+import backgroundImage from "@/images/temporary_background.jpg";
+import GoogleCalendar from "@/components/GoogleCalendar.astro";
+import Features from "@/components/Features.astro";
 ---
 
 <style>
-  .color-filter {
-    filter: grayscale(100%) sepia(100%) hue-rotate(60deg) brightness(40%)
-      contrast(90%);
-  }
+    .color-filter {
+        filter: grayscale(100%) sepia(100%) hue-rotate(60deg) brightness(40%)
+            contrast(90%);
+    }
 </style>
 
 <Layout title="Appleton Troop 67">
-  <div class="relative w-full p-2 aspect-[4/5] sm:aspect-[21/10]">
-    <Image
-      src={backgroundImage}
-      alt="background image"
-      class="w-full h-full object-cover rounded-2xl color-filter"
-    />
-    <div
-      class="absolute inset-2 rounded-l-2xl flex justify-center px-4 sm:px-16 font-heading flex-col"
-    >
-      <h1 class="text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight">
-        Forge your path.
-      </h1>
-      <h1 class="mt-4 text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight">
-        Determine your future.
-      </h1>
-      <h1 class="mt-4 text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight">
-        Embrace leadership.
-      </h1>
-      <button
-        class="group relative inline-flex h-[calc(48px+8px)] mt-6 font-main items-center justify-center rounded-full bg-scouting-white py-1 pl-6 pr-14 font-base text-white w-fit"
-        ><span class="z-10 pr-2 mix-blend-difference">Start your journey</span>
+    <div class="relative w-full p-2 aspect-[4/5] sm:aspect-[21/10]">
+        <Image
+            src={backgroundImage}
+            alt="background image"
+            class="w-full h-full object-cover rounded-2xl color-filter"
+        />
         <div
-          class="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-black transition-[width] group-hover:w-[calc(100%-8px)]"
+            class="absolute inset-2 rounded-l-2xl flex justify-center px-4 sm:px-16 font-heading flex-col"
         >
-          <div class="mr-3.5 flex items-center justify-center">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 15 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-scouting-white"
+            <h1
+                class="text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight"
             >
-              <path
-                d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                fill="currentColor"
-                fill-rule="evenodd"
-                clip-rule="evenodd"></path>
-            </svg>
-          </div>
-        </div>
-      </button>
-    </div>
-    <!-- <div class="absolute inset-2 rounded-l-2xl bg-black/20"></div> -->
-    <!-- <div class="absolute inset-2 rounded-l-2xl bg-scouting-olive/50"></div> -->
-  </div>
-  <main class="">
-    <div class="py-24 sm:py-32 bg-gradient-to-b from-scouting-tan to-white/75">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl lg:text-center">
-          <h2 class="text-base/7 font-semibold text-scouting-blue">
-            Appleton Troop 67
-          </h2>
-          <p
-            class="mt-2 text-pretty font-heading text-4xl sm:leading-tight tracking-tight text-gray-900 sm:text-5xl lg:text-balance"
-          >
-            Welcome to the future of scouting.
-          </p>
-          <p class="mt-6 text-lg/8 text-gray-600">
-            Rally behind the genius of Scoutmaster Christopher Allen. Your boys
-            will reach new heights in leadership, teamwork, physics knowledge,
-            and personal growth. They will also attend University of Wisconsin,
-            Madison someday.
-          </p>
-        </div>
-        <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl
-            class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-4xl mx-auto lg:grid-cols-2"
-          >
-            <div class="flex flex-col">
-              <dt
-                class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  class="size-5 flex-none text-scouting-blue"
+                Forge your path.
+            </h1>
+            <h1
+                class="mt-4 text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight"
+            >
+                Determine your future.
+            </h1>
+            <h1
+                class="mt-4 text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight"
+            >
+                Embrace leadership.
+            </h1>
+            <button
+                class="group relative inline-flex h-[calc(48px+8px)] mt-6 font-main items-center justify-center rounded-full bg-scouting-white py-1 pl-6 pr-14 font-base text-white w-fit"
+                ><span class="z-10 pr-2 mix-blend-difference"
+                    >Start your journey</span
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-                  ></path>
-                </svg>
-                About Troop 67
-              </dt>
-              <dd
-                class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600"
-              >
-                <p class="flex-auto">
-                  Commodo nec sagittis tortor mauris sed. Turpis tortor quis
-                  scelerisque diam id accumsan nullam tempus. Pulvinar etiam
-                  lacus volutpat eu. Phasellus praesent ligula sit faucibus.
-                </p>
-                <p class="mt-6">
-                  <a href="#" class="text-sm/6 font-semibold text-scouting-blue"
-                    >Learn more <span aria-hidden="true">→</span></a
-                  >
-                </p>
-              </dd>
-            </div>
-            <div class="flex flex-col">
-              <dt
-                class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  class="h-5 w-5 flex-none text-scouting-blue"
+                <div
+                    class="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-black transition-[width] group-hover:w-[calc(100%-8px)]"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                  ></path>
-                </svg>
-
-                Join the Troop
-              </dt>
-              <dd
-                class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600"
-              >
-                <p class="flex-auto">
-                  Pellentesque enim a commodo malesuada turpis eleifend risus.
-                  Facilisis donec placerat sapien consequat tempor fermentum
-                  nibh.
-                </p>
-                <p class="mt-6">
-                  <a href="#" class="text-sm/6 font-semibold text-scouting-blue"
-                    >Take action <span aria-hidden="true">→</span></a
-                  >
-                </p>
-              </dd>
-            </div>
-          </dl>
+                    <div class="mr-3.5 flex items-center justify-center">
+                        <svg
+                            width="15"
+                            height="15"
+                            viewBox="0 0 15 15"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-scouting-white"
+                        >
+                            <path
+                                d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                                fill="currentColor"
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+            </button>
         </div>
-      </div>
+        <!-- <div class="absolute inset-2 rounded-l-2xl bg-black/20"></div> -->
+        <!-- <div class="absolute inset-2 rounded-l-2xl bg-scouting-olive/50"></div> -->
     </div>
-    <Calendar />
-  </main>
+    <main class="">
+        <Features />
+        <GoogleCalendar />
+    </main>
 </Layout>
