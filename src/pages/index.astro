@@ -8,71 +8,91 @@ import Testimonial from "@/components/Testimonial.astro";
 ---
 
 <style>
-    .color-filter {
-        filter: grayscale(100%) sepia(100%) hue-rotate(60deg) brightness(40%)
-            contrast(90%);
-    }
+  .color-filter {
+    filter: grayscale(100%) sepia(100%) hue-rotate(60deg) brightness(40%)
+      contrast(90%);
+  }
 </style>
 
+<script>
+  import { animate, onScroll } from "@juliangarnierorg/anime-beta";
+
+  animate("#hero", {
+    y: "-100px",
+    ease: "linear",
+    autoplay: onScroll({
+      debug: true,
+      sync: true,
+      // target: document.body,
+      enter: "-80px top",
+      leave: "bottom top",
+    }),
+  });
+</script>
+
 <Layout title="Appleton Troop 67">
-    <div class="relative w-full p-2 aspect-[4/5] sm:aspect-[21/10]">
-        <Image
-            src={backgroundImage}
-            alt="background image"
-            class="w-full h-full object-cover rounded-2xl color-filter"
-            loading="eager"
-        />
-        <div
-            class="absolute inset-2 rounded-l-2xl flex justify-center px-4 sm:px-16 font-heading flex-col"
+  <div class="p-2 w-full">
+    <div
+      class="relative aspect-[4/5] sm:aspect-[21/10] rounded-2xl overflow-hidden bg-scouting-olive"
+    >
+      <Image
+        id="hero"
+        src={backgroundImage}
+        alt="background image"
+        class="w-full h-[120%] object-cover color-filter"
+        loading="eager"
+      />
+      <div
+        class="absolute inset-2 rounded-l-2xl flex justify-center px-4 sm:px-16 font-heading flex-col"
+      >
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight"
         >
-            <h1
-                class="text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight"
-            >
-                Forge your path.
-            </h1>
-            <h1
-                class="mt-4 text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight"
-            >
-                Determine your future.
-            </h1>
-            <h1
-                class="mt-4 text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight"
-            >
-                Embrace leadership.
-            </h1>
-            <button
-                class="group relative inline-flex h-[calc(48px+8px)] mt-6 font-main items-center justify-center rounded-full bg-scouting-white py-1 pl-6 pr-14 font-base text-white w-fit"
-                ><span class="z-10 pr-2 mix-blend-difference"
-                    >Start your journey</span
-                >
-                <div
-                    class="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-black transition-[width] group-hover:w-[calc(100%-8px)]"
-                >
-                    <div class="mr-3.5 flex items-center justify-center">
-                        <svg
-                            width="15"
-                            height="15"
-                            viewBox="0 0 15 15"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-scouting-white"
-                        >
-                            <path
-                                d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                </div>
-            </button>
-        </div>
-        <!-- <div class="absolute inset-2 rounded-l-2xl bg-black/20"></div> -->
-        <!-- <div class="absolute inset-2 rounded-l-2xl bg-scouting-olive/50"></div> -->
+          Forge your path.
+        </h1>
+        <h1
+          class="mt-4 text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight"
+        >
+          Determine your future.
+        </h1>
+        <h1
+          class="mt-4 text-4xl sm:text-5xl md:text-6xl text-scouting-white tracking-tight"
+        >
+          Embrace leadership.
+        </h1>
+        <button
+          class="group relative inline-flex h-[calc(48px+8px)] mt-6 font-main items-center justify-center rounded-full bg-scouting-white py-1 pl-6 pr-14 font-base text-white w-fit"
+          ><span class="z-10 pr-2 mix-blend-difference">Start your journey</span
+          >
+          <div
+            class="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-black transition-[width] group-hover:w-[calc(100%-8px)]"
+          >
+            <div class="mr-3.5 flex items-center justify-center">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-scouting-white"
+              >
+                <path
+                  d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+          </div>
+        </button>
+      </div>
+      <!-- <div class="absolute inset-2 rounded-l-2xl bg-black/20"></div> -->
+      <!-- <div class="absolute inset-2 rounded-l-2xl bg-scouting-olive/50"></div> -->
     </div>
-    <main class="">
-        <Features />
-        <Testimonial />
-        <GoogleCalendar />
-    </main>
+  </div>
+  <main class="">
+    <Features />
+    <Testimonial />
+    <GoogleCalendar />
+  </main>
 </Layout>
