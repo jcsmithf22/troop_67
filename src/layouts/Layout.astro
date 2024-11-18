@@ -6,7 +6,7 @@ import "@fontsource-variable/roboto-condensed";
 import Navigation from "@/components/Navigation.astro";
 import Footer from "@/components/Footer.astro";
 
-// import { ScrollIndicator } from "@/components/scroll-indicator";
+import { ScrollIndicator } from "@/components/scroll-indicator";
 
 interface Props {
   title: string;
@@ -27,7 +27,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-scouting-tan/75 font-main">
-    <!-- <ScrollIndicator client:load /> -->
+    <ScrollIndicator client:load />
     <div class="bg-scouting-blue py-1 px-2 text-sm text-scouting-white">
       <a href="https://scouting.org" target="_blank"> Boy Scouts of America </a>
     </div>
