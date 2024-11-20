@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
-import backgroundImage from "@/images/temporary_background.jpg";
+import backgroundImage from "@/images/main.jpg";
 import GoogleCalendar from "@/components/GoogleCalendar.astro";
 import Features from "@/components/Features.astro";
 import Testimonial from "@/components/Testimonial.astro";
@@ -15,19 +15,28 @@ import Testimonial from "@/components/Testimonial.astro";
 </style>
 
 <script>
-  import { animate, onScroll } from "@juliangarnierorg/anime-beta";
+  // import { animate, onScroll } from "@juliangarnierorg/anime-beta";
 
-  animate("#hero", {
-    y: "-200px",
-    ease: "linear",
-    autoplay: onScroll({
-      // debug: true,
-      sync: true,
-      // target: document.body,
-      enter: "-80px top",
-      leave: "bottom top",
-    }),
+  const speed = 0.5;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const image = document.querySelector<HTMLImageElement>("#hero")!;
+    document.addEventListener("scroll", () => {
+      const dist = window.scrollY - image.offsetTop;
+      image.style.top = `${dist * speed}px`;
+    });
   });
+
+  // animate("#hero", {
+  //   top: "-200px",
+  //   ease: "linear",
+  //   autoplay: onScroll({
+  //     sync: true,
+  //     // target: document.body,
+  //     enter: "-80px top",
+  //     leave: "bottom top",
+  //   }),
+  // });
 </script>
 
 <Layout title="Appleton Troop 67">
@@ -35,13 +44,17 @@ import Testimonial from "@/components/Testimonial.astro";
     <div
       class="relative aspect-[4/5] sm:aspect-[21/10] rounded-2xl overflow-hidden bg-scouting-olive"
     >
-      <Image
-        id="hero"
-        src={backgroundImage}
-        alt="background image"
-        class="w-full h-[120%] object-cover color-filter"
-        loading="eager"
-      />
+      <div class="absolute top-1/2 -translate-y-1/2 inset-x-0 h-[120%]">
+        <Image
+          id="hero"
+          src={backgroundImage}
+          height={1920}
+          width={1280}
+          alt="background image"
+          class="w-full object-cover absolute top-0 h-full"
+          loading="eager"
+        />
+      </div>
       <div
         class="absolute inset-2 rounded-l-2xl flex justify-center px-4 sm:px-16 font-heading flex-col"
       >
