@@ -15,29 +15,29 @@ import Testimonial from "@/components/Testimonial.astro";
 </style>
 
 <script>
-  import { animate, onScroll } from "@juliangarnierorg/anime-beta";
+  // import { animate, onScroll } from "@juliangarnierorg/anime-beta";
 
-  // const speed = 0.5;
+  const speed = 0.5;
 
   document.addEventListener("DOMContentLoaded", () => {
-    const div = document.querySelector<HTMLDivElement>("#header")!;
-    // const image = document.querySelector<HTMLImageElement>("#hero")!;
-    // document.addEventListener("scroll", () => {
-    //   const dist = window.scrollY - image.offsetTop;
-    //   image.style.top = `${dist * speed}px`;
-    // });
-    animate("#hero", {
-      top: "400px",
-      ease: "linear",
-      autoplay: onScroll({
-        // debug: true,
-        sync: true,
-        // target: document.body,
-        target: "#header",
-        enter: `-${div.offsetTop}px top`,
-        leave: "bottom top",
-      }),
+    // const div = document.querySelector<HTMLDivElement>("#header")!;
+    const image = document.querySelector<HTMLImageElement>("#hero")!;
+    document.addEventListener("scroll", () => {
+      const dist = window.scrollY - image.offsetTop;
+      image.style.top = `${dist * speed}px`;
     });
+    // animate("#hero", {
+    //   top: "400px",
+    //   ease: "linear",
+    //   autoplay: onScroll({
+    //     // debug: true,
+    //     sync: true,
+    //     // target: document.body,
+    //     target: "#header",
+    //     enter: `-${div.offsetTop}px top`,
+    //     leave: "bottom top",
+    //   }),
+    // });
   });
 </script>
 
