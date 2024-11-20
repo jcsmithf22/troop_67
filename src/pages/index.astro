@@ -21,12 +21,13 @@ import Testimonial from "@/components/Testimonial.astro";
 
   document.addEventListener("DOMContentLoaded", () => {
     const div = document.querySelector<HTMLDivElement>("#header")!;
+    // const image = document.querySelector<HTMLImageElement>("#hero")!;
     // document.addEventListener("scroll", () => {
     //   const dist = window.scrollY - image.offsetTop;
     //   image.style.top = `${dist * speed}px`;
     // });
     animate("#hero", {
-      top: "200px",
+      top: "400px",
       ease: "linear",
       autoplay: onScroll({
         // debug: true,
